@@ -10,19 +10,24 @@
   
 ## Installation
 
-```bash
-$ npm install
+Docker:
+
+```
+docker-compose up
 ```
 
-## Running the app
-
+In another terminal run the command to enter the Docker container:
 ```bash
-# development
-$ npm run start
+docker compose exec app bash
+```
 
-# watch mode
-$ npm run start:dev
+And configure the initial dependencies (run only inside the Docker container):
+```
+npm install
+npx prisma generate
+```
 
-# production mode
-$ npm run start:prod
+Run the application (only run inside the Docker container):
+```bash
+npm run start:dev
 ```
